@@ -4,6 +4,7 @@ const theme = {
     authText: '#6F6969',
     red: '#E20A17',
     white: '#FFFFFF',
+    border: '#C6C6C6',
   },
 };
 export default theme;

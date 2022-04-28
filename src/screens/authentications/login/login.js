@@ -50,7 +50,7 @@ const Login = ({navigation}) => {
           <View>
             <Button
               onPress={() => {
-                navigation.navigate('HomeStack');
+                navigation.navigate('BottomTab');
               }}
               title="Login"
             />

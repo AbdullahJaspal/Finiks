@@ -17,6 +17,7 @@ const Styles = StyleSheet.create({
     width: '90%',
     alignSelf: 'center',
     color: 'white',
+    height: '100%',
   },
   signupCont: {
     alignItems: 'center',

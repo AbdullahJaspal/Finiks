@@ -4,12 +4,21 @@ import theme from '../constants/theme';
 
 const {width, height} = Dimensions.get('screen');
 
-const Button = ({title = '', onPress, color = theme.colors.red}) => {
+const Button = ({
+  title = '',
+  onPress,
+  color = theme.colors.red,
+  wid = '50%',
+  titleColor = 'white',
+}) => {
   return (
     <TouchableOpacity
-      style={[Styles.button, {backgroundColor: color}]}
+      style={[
+        Styles.button,
+        {backgroundColor: color, width: wid === '' ? width / 1.6 : wid},
+      ]}
       onPress={onPress}>
-      <Text style={{fontSize: 16, fontWeight: '600', color: 'white'}}>
+      <Text style={{fontSize: 16, fontWeight: '600', color: titleColor}}>
         {title}
       </Text>
     </TouchableOpacity>
@@ -20,7 +29,6 @@ export default Button;
 
 const Styles = StyleSheet.create({
   button: {
-    width: width / 1.6,
     alignSelf: 'center',
     height: 40,
     marginTop: 20,
