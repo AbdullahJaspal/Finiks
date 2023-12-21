@@ -20,7 +20,7 @@ To run the project locally:
 
 If you have problems with any of the instructions above, please refer to the React Native docs. This is a newly created app and the latest instructions there should help you get your environment up and running without issues.
 
-# CurrencyCove Preview
+# Finiks Preview
 
 <img src="https://github.com/AbdullahJaspal/Finiks/assets/77833394/df087943-971f-4087-a6c6-9bbdfc95fdaf" width="200" height="400">
 <img src="https://github.com/AbdullahJaspal/Finiks/assets/77833394/09198d1c-af8d-48f3-9f80-4277182a9365" width="200" height="400">
