@@ -7,6 +7,7 @@ import ForgetPassword from './../../screens/authentications/forgetPassword/forge
 import NewPassword from './../../screens/authentications/newPassword/newPassword';
 import PhoneNumber from './../../screens/authentications/phoneNumber/phoneNumber';
 import ConfirmCode from './../../screens/authentications/confirmCode/confirmCode';
+import VerifyCode from '../../screens/authentications/verifyCode/verifyCode';
 
 const AuthStack = () => {
   const stack = createStackNavigator();
@@ -50,6 +51,13 @@ const AuthStack = () => {
       <stack.Screen
         name="ConfirmCode"
         component={ConfirmCode}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <stack.Screen
+        name="VerifyCode"
+        component={VerifyCode}
         options={{
           headerShown: false,
         }}

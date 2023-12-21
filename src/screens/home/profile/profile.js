@@ -90,7 +90,7 @@ const Profile = ({navigation}) => {
               onPress={() => {
                 openGallery();
               }}>
-              Uplaod picture
+              Upload picture
             </Text>
             <Text
               style={{color: '#545454', fontSize: 12}}

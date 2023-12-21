@@ -87,7 +87,7 @@ let tags = [
 
 const PhoneHome = ({navigation}) => {
   const [surveyEnabled, setSurveyEnabled] = useState(false);
-  const [modalEnabled, setModalEnabled] = useState(true);
+  const [modalEnabled, setModalEnabled] = useState(false);
   const [customEnabled, setCustomEnabled] = useState(true);
   const [campaignEnabled, setCampaignEnabled] = useState(!customEnabled);
   const [tagData, setTagData] = useState(tags);
@@ -215,7 +215,11 @@ const PhoneHome = ({navigation}) => {
           <View style={Styles.tab}>
             <Text style={{fontSize: 15, color: 'white'}}>VBM Reg</Text>
           </View>
-          <View style={Styles.add}>
+          <TouchableOpacity
+            style={Styles.add}
+            onPress={() => {
+              setModalEnabled(true);
+            }}>
             <Icon
               onPress={() => {
                 setModalEnabled(true);
@@ -225,7 +229,7 @@ const PhoneHome = ({navigation}) => {
               size={16}
               color="white"
             />
-          </View>
+          </TouchableOpacity>
         </ScrollView>
         <Modal
           animationType="slide"

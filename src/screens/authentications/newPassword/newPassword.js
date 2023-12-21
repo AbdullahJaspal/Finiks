@@ -19,13 +19,13 @@ const NewPassword = ({navigation}) => {
         source={require('../../../images/bgImage1.png')}>
         <AuthHead top={true} />
         <View style={{width: '90%', alignSelf: 'center'}}>
-          <Text style={Styles.title}>Verification code</Text>
+          {/* <Text style={Styles.title}>Verification code</Text>
           <View style={Styles.inputCont}>
             <TextInput
               style={Styles.inputText}
               placeholder=""
               placeholderTextColor={theme.colors.white}></TextInput>
-          </View>
+          </View> */}
           <Text style={Styles.title}>New Password</Text>
           <View style={Styles.inputCont}>
             <TextInput

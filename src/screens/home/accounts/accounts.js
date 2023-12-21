@@ -56,6 +56,9 @@ const Accounts = ({navigation}) => {
               fillColor="#49C661"
               unfillColor="#FFFFFF"
               iconStyle={{borderColor: '#D9D9D9'}}
+              onPress={() => {
+                navigation.navigate('HomeScreen');
+              }}
             />
           </View>
           <View style={[Styles.accountTab, {marginTop: 5}]}>
@@ -77,6 +80,9 @@ const Accounts = ({navigation}) => {
               color={theme.colors.red}
               name="pluscircle"
               type="antdesign"
+              onPress={() => {
+                navigation.navigate('ConfirmCode');
+              }}
             />
           </View>
         </View>

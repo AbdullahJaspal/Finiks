@@ -1,10 +1,17 @@
 import React from 'react';
+import {ToastProvider} from 'react-native-toast-notifications';
+import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/lib/integration/react';
 import MainNavigation from './src/navigation/mainNav';
-import Accounts from './src/screens/home/accounts/accounts';
-import HomeScreen from './src/screens/home/homepage/homepage';
-import Profile from './src/screens/home/profile/profile';
-
-const App = () => {
-  return <MainNavigation />;
+import {store, persister} from './src/redux/store';
+export default App = () => {
+  return (
+    <Provider store={store}>
+      <PersistGate persistor={persister}>
+        <ToastProvider>
+          <MainNavigation />
+        </ToastProvider>
+      </PersistGate>
+    </Provider>
+  );
 };
-export default App;

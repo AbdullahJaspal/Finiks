@@ -8,6 +8,8 @@ import SelectPhone from '../../screens/phoneBank/selectphone/selectPhone';
 import PhoneStack from '../stacks/phoneStack';
 import VoterDatabase from '../../screens/canvass/voterDatabase/voterDataBase';
 import CanvassStack from '../stacks/canvassStack';
+import LeaderboardStack from '../stacks/leaderBoardStack';
+import ChatStack from '../stacks/chatStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -39,7 +41,7 @@ const MyTabs = () => {
 
       <Tab.Screen
         name="Chat"
-        component={HomeStack}
+        component={ChatStack}
         options={{
           headerShown: false,
           tabBarIcon: ({color, size, focused}) => (
@@ -62,7 +64,7 @@ const MyTabs = () => {
 
       <Tab.Screen
         name="LeaderBoard"
-        component={HomeStack}
+        component={LeaderboardStack}
         options={{
           headerShown: false,
           tabBarIcon: ({color, size, focused}) => (

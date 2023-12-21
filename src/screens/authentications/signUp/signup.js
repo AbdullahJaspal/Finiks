@@ -11,10 +11,18 @@ import {
   KeyboardAwareScrollView,
 } from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
+import {useDispatch, useSelector} from 'react-redux';
 import AuthHead from '../../../components/authHead';
 import Button from '../../../components/button';
 import theme from '../../../constants/theme';
+import {
+  authLoad,
+  getConfirmationCode,
+  registerUser,
+} from '../../../redux/actions/auth';
 import Styles from './styles';
+import {useToast} from 'react-native-toast-notifications';
+import {Loading} from '../../../components/Loading';
 
 const {width, height} = Dimensions.get('screen');
 
@@ -23,7 +31,16 @@ const Signup = ({navigation}) => {
     require('../../../images/accountImgL.png'),
   );
   const [imgUri, setImgUri] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [phoneNNum, setPhoneNum] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [address, setAddress] = useState('');
+  const toast = useToast();
 
+  const dispatch = useDispatch();
+  const {authLoading} = useSelector(state => state.auth);
   const openCamera = () => {
     ImagePicker.openCamera({
       width: 300,
@@ -47,7 +64,77 @@ const Signup = ({navigation}) => {
       setImgUri(image.path);
     });
   };
+  const validateEmail = email => {
+    return email.match(
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+    );
+  };
+  const handleNav = () => {
+    if (
+      firstName === '' ||
+      lastName === '' ||
+      phoneNNum === '' ||
+      email === '' ||
+      address === '' ||
+      password === ''
+    ) {
+      toast.show('Fill all the fields', {
+        animationType: 'zoom-in',
+        type: 'danger',
+      });
+    } else if (!validateEmail(email)) {
+      toast.show('Enter valid Email', {
+        animationType: 'zoom-in',
+        type: 'danger',
+      });
+    } else {
+      dispatch(authLoad(true));
+      var data = JSON.stringify({
+        email: email,
+        password: password,
+        firstName: firstName,
+        lastName: lastName,
+        address: address,
+        phoneNumber: phoneNNum,
+      });
+      dispatch(registerUser(data, success, error));
+    }
+  };
 
+  const success = data => {
+    toast.show(data.message, {
+      animationType: 'zoom-in',
+      type: 'success',
+    });
+    console.log(data);
+    navigation.navigate('BottomTab');
+    // dispatch(getConfirmationCode(data, successConfirm, errorConfirm));
+  };
+
+  const successConfirm = data => {
+    toast.show(data.message, {
+      animationType: 'zoom-in',
+      type: 'success',
+    });
+    console.log(data);
+    navigation.navigate('ConfirmCode', {email: email});
+  };
+  const errorConfirm = data => {
+    dispatch(authLoad(false));
+    console.log(data);
+    toast.show(data.message, {
+      animationType: 'zoom-in',
+      type: 'danger',
+    });
+  };
+  const error = data => {
+    dispatch(authLoad(false));
+    console.log(data);
+    toast.show(data.message, {
+      animationType: 'zoom-in',
+      type: 'danger',
+    });
+  };
   return (
     <SafeAreaView style={{flex: 1}}>
       <ScrollView>
@@ -83,7 +170,12 @@ const Signup = ({navigation}) => {
           <View style={Styles.middleCont}>
             <Text style={Styles.title}>First Name</Text>
             <View style={Styles.inputCont}>
-              <TextInput style={Styles.input}></TextInput>
+              <TextInput
+                style={Styles.input}
+                onChangeText={val => {
+                  setFirstName(val);
+                }}
+              />
             </View>
             <Text style={Styles.title}>Last Name</Text>
             <View
@@ -93,7 +185,12 @@ const Signup = ({navigation}) => {
                   borderRadius: 5,
                 },
               ]}>
-              <TextInput style={Styles.input}></TextInput>
+              <TextInput
+                style={Styles.input}
+                onChangeText={val => {
+                  setLastName(val);
+                }}
+              />
             </View>
             <Text style={Styles.title}>Phone Number</Text>
             <View
@@ -105,7 +202,11 @@ const Signup = ({navigation}) => {
               ]}>
               <TextInput
                 style={Styles.input}
-                keyboardType="numeric"></TextInput>
+                keyboardType="numeric"
+                onChangeText={val => {
+                  setPhoneNum(val);
+                }}
+              />
             </View>
             <Text style={Styles.title}>Email</Text>
             <View
@@ -117,7 +218,26 @@ const Signup = ({navigation}) => {
               ]}>
               <TextInput
                 style={Styles.input}
-                keyboardType="email-address"></TextInput>
+                keyboardType="email-address"
+                onChangeText={val => {
+                  setEmail(val.trim());
+                }}
+              />
+            </View>
+            <Text style={Styles.title}>Password</Text>
+            <View
+              style={[
+                Styles.inputCont,
+                {
+                  borderRadius: 5,
+                },
+              ]}>
+              <TextInput
+                style={Styles.input}
+                onChangeText={val => {
+                  setPassword(val);
+                }}
+              />
             </View>
             <Text style={Styles.title}>Address</Text>
             <View
@@ -127,13 +247,18 @@ const Signup = ({navigation}) => {
                   borderRadius: 5,
                 },
               ]}>
-              <TextInput style={Styles.input}></TextInput>
+              <TextInput
+                style={Styles.input}
+                onChangeText={val => {
+                  setAddress(val);
+                }}
+              />
             </View>
           </View>
 
           <Button
             onPress={() => {
-              navigation.navigate('PhoneNumber');
+              handleNav();
             }}
             title="Sign up"
           />
@@ -144,7 +269,7 @@ const Signup = ({navigation}) => {
               <Text
                 style={{color: theme.colors.red}}
                 onPress={() => {
-                  navigation.navigate('Login');
+                  handleNav();
                 }}>
                 {' '}
                 Login
@@ -165,6 +290,7 @@ const Signup = ({navigation}) => {
           </View>
         </ImageBackground>
       </ScrollView>
+      <Loading visible={authLoading} />
     </SafeAreaView>
   );
 };

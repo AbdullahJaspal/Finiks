@@ -9,7 +9,6 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {Icon} from 'react-native-elements';
-import {MaterialCommunityIcons} from 'react-native-vector-icons';
 import Styles from './styles';
 import Button from './../../../components/button';
 import theme from '../../../constants/theme';
@@ -20,7 +19,15 @@ const HomeScreen = ({navigation}) => {
       <View style={Styles.headerCont}>
         <View style={Styles.header}>
           <View style={Styles.iconCont}>
-            <Icon color="#D12E2F" name="calendar" type="foundation" size={28} />
+            <Icon
+              color="#D12E2F"
+              name="calendar"
+              type="foundation"
+              size={28}
+              onPress={() => {
+                navigation.navigate('Calendar');
+              }}
+            />
             <Icon
               name="bell"
               type="fontisto"

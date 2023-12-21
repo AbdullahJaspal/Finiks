@@ -29,7 +29,6 @@ const Styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   renderCont: {
-    height: moderateScale(350),
     width: width / 1.1,
     alignSelf: 'center',
     borderRadius: 20,
@@ -37,6 +36,7 @@ const Styles = StyleSheet.create({
     elevation: 5,
     backgroundColor: 'white',
     marginTop: 20,
+    paddingBottom: 15,
   },
   renderView: {
     width: width / 1.1,
@@ -54,7 +54,7 @@ const Styles = StyleSheet.create({
   },
   textCont: {
     width: '90%',
-    height: height / 4.8,
+    // height: height / 4.8,
     alignSelf: 'center',
     flex: 1,
   },
