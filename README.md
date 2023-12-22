@@ -26,8 +26,8 @@ If you have problems with any of the instructions above, please refer to the Rea
 <img src="https://github.com/AbdullahJaspal/Finiks/assets/77833394/e9b6ed9d-50f8-429b-8600-25d8e22e6961" width="200" height="400">
 <img src="https://github.com/AbdullahJaspal/Finiks/assets/77833394/53b5f9ec-33ac-4b94-a139-2863b7e28e19" width="200" height="400">
 <img src="https://github.com/AbdullahJaspal/Finiks/assets/77833394/10e3f5e4-0372-4b00-9288-9f94830de33c" width="200" height="400">
-<img src="https://github.com/AbdullahJaspal/Finiks/assets/77833394/95e3941a-daa1-422c-a6ac-caa2bee5f0b0" width="200" height="400">
 <img src="https://github.com/AbdullahJaspal/Finiks/assets/77833394/c6c59836-b10a-4a03-af9d-9b1cc55ff868" width="200" height="400">
+<img src="https://github.com/AbdullahJaspal/Finiks/assets/77833394/95e3941a-daa1-422c-a6ac-caa2bee5f0b0" width="200" height="400">
 <img src="https://github.com/AbdullahJaspal/Finiks/assets/77833394/46d5171f-7248-42a8-9563-eb702f550b56" width="200" height="400">
 <img src="https://github.com/AbdullahJaspal/Finiks/assets/77833394/1b058b7a-4e01-40f0-92ac-2f71b1c425dd" width="200" height="400">
 <img src="https://github.com/AbdullahJaspal/Finiks/assets/77833394/549f2347-0bbe-4da6-a263-75343a4d2582" width="200" height="400">
